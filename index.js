@@ -1,51 +1,50 @@
+/*eslint-env jquery*/
 'use strict';
-/*
-const itemSubmit = function () {
-  $( '#js-shopping-list-form' ).click('submit', function() {
-    event.preventDefault();
-    const userItem = $('js-shopping-list-entry').val();
-    $('#shopping-list-entry').val('');
-    $('shopping-list').append(`<li> 
-      <span class="shopping-item">apples</span>
-      <div class="shopping-item-controls">
-      <button class="shopping-item-toggle">
-      <span class="button-label">check</span>
-      </button>
-      <button class="shopping-item-delete">
-      <span class="button-label">delete</span>
-      </button>
-      </div> </li>`);
-  });
-  $('text').keypress(function(key){
-    if(key===13){
-      $('submit').itemSubmit();
-    }
-  });
-};
 
-const checkItem = function (){
-  $('shopping list').click('.shopping-item-toggle', function(){
-    $(this).closest('li').toggleClass('shopping-item__checked');
-  });
-};
+// const itemSubmit = function () {
+//   $( '#js-shopping-list-form' ).submit(function() {
+//     event.preventDefault();
+//     const userItem = $('js-shopping-list-entry').val();
+//     $('#shopping-list-entry').val('');
+//     $('shopping-list').append(`<li> 
+//       <span class="shopping-item">apples</span>
+//       <div class="shopping-item-controls">
+//       <button class="shopping-item-toggle">
+//       <span class="button-label">check</span>
+//       </button>
+//       <button class="shopping-item-delete">
+//       <span class="button-label">delete</span>
+//       </button>
+//       </div> </li>`);
+//   });
+//   $('text').keypress(function(key){
+//     if(key===13){
+//       $('submit').itemSubmit();
+//     }
+//   });
+// };
 
-const removeItem = function(){
-  $('shopping-list').click('.shopping-item-delete', function(){
-    $(this).closest('li').remove();
-  });
-};
-*/
-//Above was my old code. Kind of confused about line 6 and 7.
+// const checkItem = function (){
+//   $('shopping list').click('.shopping-item-toggle', function(){
+//     $(this).closest('li').toggleClass('shopping-item__checked');
+//   });
+// };
 
-//not sure if i need this. something to do with calling it at the end 
-//for DOM ready check
+// const removeItem = function(){
+//   $('shopping-list').click('.shopping-item-delete', function(){
+//     $(this).closest('li').remove();
+//   });
+// };
+
 // const main = function(){
 //   itemSubmit();
 //   checkItem();
 //   removeItem();
 // };
 
-// main();
+// $(main);
+
+//Above was my old code. Kind of confused about line 6 and 7.
 
 //Below, is the starting example from Repl
 const STORE = [
@@ -101,6 +100,7 @@ function handleNewItemSubmit() {
     event.preventDefault();
     console.log('`handleNewItemSubmit` ran');
     const newItemName = $('.js-shopping-list-entry').val();
+    console.log(newItemName);
     $('.js-shopping-list-entry').val('');
     addItemToShoppingList(newItemName);
     renderShoppingList();
@@ -141,8 +141,15 @@ function handleDeleteItemClicked() {
     deleteCheckedForListItem(itemIndex);
     renderShoppingList();
   });
-  console.log('`handleDeleteItemClicked` ran');
 }
+
+// User can press a switch/checkbox to toggle between displaying 
+// all items or displaying only items that are unchecked
+// User can type in a search term and the displayed list will be 
+// filtered by item names only containing that search term
+// User can edit the title of an item
+
+function 
 
 // this function will be our callback when the page loads. it's responsible for
 // initially rendering the shopping list, and activating our individual functions

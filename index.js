@@ -148,8 +148,30 @@ function handleDeleteItemClicked() {
 // User can type in a search term and the displayed list will be 
 // filtered by item names only containing that search term
 // User can edit the title of an item
+function toggleButtonString(){
+  return `<button class="hide-checked-items"><span 
+  class="button-label">Toggle Checked</span></button>`;
+}
 
-function 
+function addToggleButton(){
+  $('#toggle-checked-items').html(toggleButtonString(STORE));
+}
+
+function findChecked(){
+  if($('.js-shopping-list').find(STORE.checked.true)){
+    console.log('`findChecked` ran');
+    const filterListItems = STORE.filter($(STORE.checked.false));
+    renderShoppingList(filterListItems);
+  }
+  renderShoppingList(STORE);
+}
+
+function toggleFilterChecked(){
+  $('#toggle-checked-items').on('click', 'hide-checked-items', function() {
+    console.log('`toggleFilterChecked` checked');
+    findChecked();
+  });
+}
 
 // this function will be our callback when the page loads. it's responsible for
 // initially rendering the shopping list, and activating our individual functions
@@ -160,6 +182,8 @@ function handleShoppingList() {
   handleNewItemSubmit();
   handleItemCheckClicked();
   handleDeleteItemClicked();
+  toggleFilterChecked();
+  addToggleButton();
 }
 
 // when the page loads, call `handleShoppingList`

@@ -1,28 +1,38 @@
-const item = function () {
+'use strict';
 
-  $( "input" )
-  .keyup(function() {
-    let item = $( this ).val();
-
+const itemSubmit = function () {
+  $( 'submit' ).click(function() {
+    const userShopping = $(this).find('#shopping-list-entry');
+    $('shopping-item').text(`${userShopping.val()}`);
+    $('ul').append('<li>' + [`${userShopping.val()}`] + '</li>');
+    userShopping.val('');
   });
-}
+  $('text').keypress(function(key){
+    if(key===13){
+      $('submit').itemSubmit();
+    }
+  });
+};
+
+const checkItem = function (){
+  $('shopping-item-toggle').click(function(){
+    $(this).css('shopping-item__checked');
+  });
+};
+
+const removeItem = function(){
+  $('shopping-item-delete').click(function(){
+    $(this).remove();
+  });
+};
 
 
+//not sure if i need this. something to do with calling it at the end 
+//for DOM ready check
+// const main = function(){
+//   itemSubmit();
+//   checkItem();
+//   removeItem();
+// };
 
-//Takes the item and pushes into the list
-function addItem(item()) {
-  return
-  `<li>
-    <span class="shopping-item">${item}</span>
-    <div class="shopping-item-controls">
-      <button class="shopping-item-toggle">
-        <span class="button-label">check</span>
-      </button>
-      <button class="shopping-item-delete">
-        <span class="button-label">delete</span>
-      </button>
-    </div>
-  </li>`
-}
-
-addItem();
+// main();

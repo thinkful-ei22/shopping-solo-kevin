@@ -15,13 +15,13 @@ const itemSubmit = function () {
 };
 
 const checkItem = function (){
-  $('shopping-item-toggle').click(function(){
+  $('shopping list').click('.shopping-item-toggle', function(){
     $(this).css('shopping-item__checked');
   });
 };
 
 const removeItem = function(){
-  $('shopping-item-delete').click(function(){
+  $('shopping-list').click('.shopping-item-delete', function(){
     $(this).remove();
   });
 };

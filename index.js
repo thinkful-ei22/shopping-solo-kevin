@@ -1,7 +1,7 @@
 'use strict';
 
 const itemSubmit = function () {
-  $( 'submit' ).click(function() {
+  $( '#js-shopping-list-form' ).click('submit', function() {
     const userShopping = $(this).find('#shopping-list-entry');
     $('shopping-item').text(`${userShopping.val()}`);
     $('ul').append('<li>' + [`${userShopping.val()}`] + '</li>');
